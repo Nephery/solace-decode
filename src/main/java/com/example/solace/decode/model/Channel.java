@@ -1,9 +1,18 @@
 package com.example.solace.decode.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.lang.String;
 
 @Entity
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Channel {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -13,29 +22,9 @@ public class Channel {
     private String name;
 
     @Column(nullable=false)
-    private String type  = "channel";
+    private String type = "channel";
 
-    public Integer getId() {
-        return id;
-    }
+    private String channelType;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
+    private String time;
 }

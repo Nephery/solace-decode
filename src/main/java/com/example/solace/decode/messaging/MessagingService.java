@@ -1,11 +1,11 @@
 package com.example.solace.decode.messaging;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.solacesystems.jcsmp.BytesMessage;
 import com.solacesystems.jcsmp.JCSMPException;
 import com.solacesystems.jcsmp.JCSMPFactory;
 import com.solacesystems.jcsmp.JCSMPSession;
 import com.solacesystems.jcsmp.JCSMPStreamingPublishEventHandler;
-import com.solacesystems.jcsmp.TextMessage;
 import com.solacesystems.jcsmp.Topic;
 import com.solacesystems.jcsmp.XMLMessageProducer;
 import org.springframework.stereotype.Service;
