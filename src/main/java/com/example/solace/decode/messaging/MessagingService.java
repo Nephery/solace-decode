@@ -44,4 +44,12 @@ public class MessagingService {
         prod.send(msg,topic);
     }
 
+//    public void subscribe (String topicName) throws Exception{
+//        final Topic topic = JCSMPFactory.onlyInstance().createTopic(topicName);
+//        session.addSubscription(topic);
+//    }
+
+
+
+
 }

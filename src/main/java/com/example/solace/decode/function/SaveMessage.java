@@ -1,7 +1,7 @@
 package com.example.solace.decode.function;
 
 import com.example.solace.decode.model.es.ESMessage;
-import com.example.solace.decode.repository.MessageRepository;
+import com.example.solace.decode.repository.MessageJPARepository;
 import com.example.solace.decode.repository.es.ESMessageRepository;
 import com.solace.spring.cloud.stream.binder.messaging.SolaceHeaders;
 import com.solacesystems.jcsmp.Destination;
@@ -15,12 +15,12 @@ import java.util.regex.Pattern;
 
 @Component
 public class SaveMessage implements Consumer<Message<com.example.solace.decode.model.Message>> {
-	private final MessageRepository messageRepository;
+	private final MessageJPARepository messageRepository;
 	private final ESMessageRepository ESMessageRepository;
 	private final Pattern channelIdMatcher = Pattern.compile("^channels/(.*?)/");
 
 	@Autowired
-	public SaveMessage(MessageRepository messageRepository, ESMessageRepository ESMessageRepository) {
+	public SaveMessage(MessageJPARepository messageRepository, ESMessageRepository ESMessageRepository) {
 		this.messageRepository = messageRepository;
 		this.ESMessageRepository = ESMessageRepository;
 	}

@@ -1,24 +1,35 @@
 package com.example.solace.decode.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.*;
 
-@Document
-@NoArgsConstructor
-@ToString
-@Getter
-@Setter
+import javax.persistence.Id;
+
+import javax.persistence.*;
+
+@Data
+@Entity
 public class Message {
 	@Id
 	private String id;
 
-	private String payload;
-
+ 	@Column(nullable=false)
 	private Integer channelId;
 
+	@Column(nullable=false)
+	private String type;
+
+	@Column(nullable=false)
+	private Integer userId;
+
+	@Column(nullable=false)
+	private String name;
+
+	@Column(nullable=false, columnDefinition="TEXT")
+	private String text;
+
+	@Column(nullable=false)
+	private String timestamp;
+
 	private int search_clicks;
+
 }

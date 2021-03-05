@@ -1,7 +1,7 @@
 package com.example.solace.decode.function;
 
 import com.example.solace.decode.model.es.ESMessage;
-import com.example.solace.decode.repository.MessageRepository;
+import com.example.solace.decode.repository.MessageJPARepository;
 import com.example.solace.decode.repository.es.ESMessageRepository;
 import com.solace.spring.cloud.stream.binder.messaging.SolaceHeaders;
 import com.solacesystems.jcsmp.Destination;
@@ -16,12 +16,12 @@ import java.util.regex.Pattern;
 
 @Component
 public class UpdateMessageSearchAction implements Consumer<Message<?>> {
-	private final MessageRepository messageRepository;
+	private final MessageJPARepository messageRepository;
 	private final com.example.solace.decode.repository.es.ESMessageRepository ESMessageRepository;
 	private final Pattern pattern = Pattern.compile("^messages/(.*?)/actions/(.*?)$");
 
 	@Autowired
-	public UpdateMessageSearchAction(MessageRepository messageRepository, ESMessageRepository ESMessageRepository) {
+	public UpdateMessageSearchAction(MessageJPARepository messageRepository, ESMessageRepository ESMessageRepository) {
 		this.messageRepository = messageRepository;
 		this.ESMessageRepository = ESMessageRepository;
 	}

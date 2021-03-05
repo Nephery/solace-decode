@@ -32,7 +32,7 @@ public class ESMessage {
 	public ESMessage(Message message) {
 		this.id = message.getId();
 		this.channelId = message.getChannelId();
-		this.payload = message.getPayload();
+		this.payload = message.getText();
 		this.search_clicks = 0.00000000000000000001; // Set it to a tiny number because rank features must be > 1
 	}
 }
