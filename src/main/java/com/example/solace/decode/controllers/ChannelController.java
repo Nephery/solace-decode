@@ -33,8 +33,6 @@ public class ChannelController {
     public void createChannel(@RequestBody Channel channel) throws Exception {
         channelService.createChannel(channel);
         messagingService.publish("channels", channel);
-
-
     }
 }
 
