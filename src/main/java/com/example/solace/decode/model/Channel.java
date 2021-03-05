@@ -27,4 +27,7 @@ public class Channel {
     private String channelType;
 
     private String time;
+
+    @Column(columnDefinition="TEXT")
+    private String description;
 }
