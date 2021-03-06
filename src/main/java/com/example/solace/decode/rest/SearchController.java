@@ -28,7 +28,7 @@ public class SearchController {
     @CrossOrigin
     @PostMapping("search/messages")
     List<Message> searchMessages(@RequestBody SearchRequest request) {
-        Iterable<String> ids = ESRepo.findAllByPayloadContains(request.getContent())
+        Iterable<String> ids = ESRepo.customFind(request.getContent(), request.getUserId())
                 .stream()
                 .map(ESMessage::getId)
                 .collect(Collectors.toList());

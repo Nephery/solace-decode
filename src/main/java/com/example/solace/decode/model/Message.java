@@ -32,4 +32,5 @@ public class Message {
 
 	private int search_clicks;
 
+	private String sendingUserId;
 }
