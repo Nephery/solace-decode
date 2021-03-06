@@ -29,10 +29,17 @@ public class ESMessage {
 	@Field(type = FieldType.Rank_Feature)
 	private double search_clicks;
 
-	public ESMessage(Message message) {
+	@Field(type = FieldType.Keyword)
+	private String sendingUserId;
+
+	private Integer[] mentionedUserIds;
+
+	public ESMessage(Message message, Integer[] mentionedUserIds) {
 		this.id = message.getId();
 		this.channelId = message.getChannelId();
 		this.payload = message.getText();
 		this.search_clicks = 0.00000000000000000001; // Set it to a tiny number because rank features must be > 1
+		this.sendingUserId = message.getSendingUserId();
+		this.mentionedUserIds = mentionedUserIds;
 	}
 }
